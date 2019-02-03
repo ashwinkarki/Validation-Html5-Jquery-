@@ -1,0 +1,201 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+	<style>
+		
+form { border: 1px solid blue; }
+input:invalid { border: 1px solid red; }
+	</style>
+  <title></title>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!-- Popper JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+  <div class="container" style="padding-bottom: 20px;">
+    <h2>Pre Assessment</h2>
+    <div class="card">
+      <div class="card-body">
+        <div class="col-md-12" style="float: none;">
+          <form id="oldForm">
+            <div class="row">
+              <div class="form-group col-md-6 assess">
+                <div class="col-md-12">
+                  <font face="preeti" size="5">s/ lgwf{/0f ug{ kg]{ sf/0f
+                  </font>
+                  <select class="form-control" name="causeOfExciseAct" id="causeOfExciseAct">
+                    <option value="" selected disabled hidden>Choose here</option>
+                    <option value="appeal">Appeal</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group col-md-6">
+                <div class="row">
+                  <div class="col-md-12 pnbp" style="margin-bottom: 10px;">
+                    <font face="preeti" size="5">
+                      k'g/fj]bgsf] lg0f{o cg';f/ ePsf] eP k'g/fj]bg g+ </font>
+                    <input type="text" class="form-control" id="appealId" name="appealId" required />
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12 orIf" style="margin-bottom: 10px;">
+                    <font face="preeti" size="5">cGo</font>
+                    <input type="text" class="form-control" id="reasonDesc" name="reasonDesc" required />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- for other two field -->
+            <div class="row">
+              <div class="form-group col-md-3">
+                <div class="col-md-12" style="margin-bottom: 10px;">
+                  (B.S.)
+                  <input type="text" class="form-control" onchange="changeToAd(this.value,document.getElementById('intCalUptoAd').id)" id="intCalUpto" name="intCalUpto" required>
+                </div>
+              </div>
+              <div class="form-group col-md-3">
+                <div class="col-md-12" style="margin-bottom: 10px;">
+                  <font face="preeti" size="5">
+                  </font>(A.D.)
+                  <input type="text" class="form-control" onchange="changeToBs(this.value,document.getElementById('intCalUpto').id)" id="intCalUptoAd" name="intCalUptoAd" required>
+                </div>
+              </div>
+              <div class="form-group col-md-3">
+                <div style="margin-bottom: 40px;">
+                  (B.S)
+                  <input type="text" class="form-control" onchange="changeToAd(this.value,document.getElementById('assessmentDateAd').id)" id="assessmentDate" name="assessmentDate">
+                </div>
+              </div>
+              <div class="form-group col-md-3">
+                <div style="margin-bottom: 40px;">
+                  (A.D)
+                  <input type="text" class="form-control" onchange="changeToBs(this.value,document.getElementById('assessmentDate').id)" id="assessmentDateAd" name="assessmentDateAd">
+                </div>
+              </div>
+            </div>
+          </form>
+          <form id="newForm">
+            <div id="formContainer" class="col-md-12" style="float: none;">
+              <div style="margin-bottom: 30px;">
+                <div class="form-group row">
+                  <div class="col-md-1"></div>
+                  <div class="col-md-4">
+                    <label>Reason</label>
+                  </div>
+                  <div class="col-md-2">
+                    <label>Amount</label>
+                  </div>
+                  <div class="col-md-2">
+                    <label>Penalty</label>
+                  </div>
+                  <div class="col-md-1">Total</div>
+                  <div class="col-md-2">Action</div>
+                </div>
+                <div class="customs-table row">
+                  <div class="col-md-1">
+                    <label>Customs</label>
+                  </div>
+                  <div class="col-md-4">
+                    <input type="text" class="form-control customReason" required />
+                  </div>
+                  <div class="col-md-2">
+                    <input type="number" class="form-control txt customAmount" value="0" name="abc" min="0" required />
+                  </div>
+                  <div class="col-md-2">
+                    <input type="number" class="form-control txt customPenalty" value="0" name="abc" min="0" required />
+                  </div>
+                  <div class="col-md-1">
+                    <span class="sum">0</span>
+                  </div>
+                  <div class="col-md-2">
+                    <button type="button" class="add">+</button>
+                    <button type="button" class="remove">-</button>
+                  </div>
+                </div>
+                <div class="vat-table row">
+                  <div class="col-md-1">
+                    <label>VAT</label>
+                  </div>
+                  <div class="col-md-4">
+                    <input type="text" class="form-control vatReason" name="vatReason" />
+                  </div>
+                  <div class="col-md-2">
+                    <input type="number" class="form-control txt1 vatAmount" value="0" name="vatAmount" min="0" />
+                  </div>
+                  <div class="col-md-2">
+                    <input type="number" class="form-control txt1 vatPenalty" value="0" name="vatPenalty" min="0" />
+                  </div>
+                  <div class="col-md-1">
+                    <span class="sum">0</span>
+                  </div>
+                  <div class="col-md-2">
+                    <button type="button" class="add">+</button>
+                    <button type="button" class="remove">-</button>
+                  </div>
+                </div>
+                <div class="excise-table row">
+                  <div class="col-md-1">
+                    <label>Excise</label>
+                  </div>
+                  <div class="col-md-4">
+                    <input type="text" class="form-control exciseReason" name="exciseReason" />
+                  </div>
+                  <div class="col-md-2">
+                    <input type="number" class="form-control txt2 exciseAmount" value="0" name="exciseAmount" min="0" />
+                  </div>
+                  <div class="col-md-2">
+                    <input type="number" class="form-control txt2 excisePenalty" value="0" name="excisePenalty" min="0" />
+                  </div>
+                  <div class="col-md-1">
+                    <span class="sum">0</span>
+                  </div>
+                  <div class="col-md-2">
+                    <button type="button" class="add">+</button>
+                    <button type="button" class="remove">-</button>
+                  </div>
+                </div>
+                <div id="a"></div>
+                <div class="col-md-12 pull-right">
+                  <label>Total:</label>&nbsp;<b><span id="tot">0</span></b>
+                </div>
+              </div>
+              <button id="saveBtn" class="btn btn-success pull-right">Submit</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
+<script>
+	 
+$(document).ready(function() {
+	console.log("ssaved form validatin");
+  // Add the e (event) argument to your event handler...
+  $("#saveBtn").on("click", function(e) {
+    // and call preventDefault() on it to prevent submission of the form.
+    e.preventDefault();
+    let allValid = true;
+    $("form").each(function (index, form) {
+      allValid = allValid && form.reportValidity();
+    });
+    if (allValid) {
+      /*$.ajax({
+        // ajax code to submit
+      }); */
+    }
+  });
+
+});
+</script>
